@@ -21,3 +21,10 @@
 
 ## Build Notes
 - `vite.config.js` defines `global: 'globalThis'` for Stellar SDK compatibility
+## Blue Belt Completion Status
+- MVP fully validated with 5+ real testnet users
+- User feedback collected via Google Form and exported to Excel
+- Architecture document completed (see ARCHITECTURE.md)
+- CI/CD pipeline active via GitHub Actions
+- Deployed on Vercel: https://play-chain-plum.vercel.app
+
