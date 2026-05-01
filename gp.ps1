@@ -4,9 +4,12 @@ $env:GIT_TERMINAL_PROMPT = "0"
 & $git add -A
 $staged = & $git status --short
 if ($staged) {
-    Write-Host "Staging: $staged"
-    & $git commit -m "chore: sync all local changes"
+    Write-Host "Staging changes:"
+    $staged
+    & $git commit -m "feat(ui): optimize application for mobile UI (bottom nav, bottom sheet modal, touch targets)"
+} else {
+    Write-Host "No changes to commit."
 }
 & $git push origin main 2>&1
-Write-Host "Done. Exit: $LASTEXITCODE"
+Write-Host "Push exit: $LASTEXITCODE"
 & $git log --oneline -5

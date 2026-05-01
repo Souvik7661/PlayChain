@@ -278,14 +278,71 @@ body {
 
 /* ── Responsive ── */
 @media (max-width: 768px) {
+  body { padding-bottom: calc(70px + env(safe-area-inset-bottom)); }
   .navbar { padding: 0 1rem; }
   .navbar-nav { display: none; }
-  .hero { padding: 3rem 1rem 2rem; padding-top: calc(3rem + env(safe-area-inset-top)); }
-  .main { padding: 0 1rem 3rem; padding-bottom: calc(3rem + env(safe-area-inset-bottom)); }
-  .match-grid { grid-template-columns: 1fr; }
-  .stats-bar { gap: 1.5rem; padding: 1rem; }
-  .footer { flex-direction: column; }
+  .hero { padding: 2rem 1rem 1rem; padding-top: calc(1rem + env(safe-area-inset-top)); }
+  .hero h1 { font-size: clamp(2rem, 10vw, 3.5rem); } /* Prevent overflow on small screens */
+  .main { padding: 0 1rem 3rem; }
+  .match-grid { grid-template-columns: 1fr; gap: 1rem; }
+  .stats-bar { gap: 1rem; padding: 1rem; }
+  .footer { flex-direction: column; padding-bottom: calc(80px + env(safe-area-inset-bottom)); }
   .admin-panels { grid-template-columns: 1fr; }
   .tx-row { grid-template-columns: 1fr; }
+  
+  /* Touch target optimizations */
+  .btn, .filter-chip, .nav-btn, .team-option { min-height: 44px; }
+  .quick-btn { min-height: 38px; } /* Slightly smaller for quick bet row to fit */
+  
+  /* Modal -> Bottom Sheet */
+  .modal-overlay { align-items: flex-end; padding: 0; }
+  .modal { 
+    border-radius: 24px 24px 0 0; 
+    padding: 1.5rem 1.25rem calc(1.5rem + env(safe-area-inset-bottom)); 
+    max-width: 100%;
+    margin: 0;
+    box-shadow: 0 -10px 40px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.1);
+  }
+  
+  /* Mobile Bottom Nav */
+  .mobile-bottom-nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: calc(65px + env(safe-area-inset-bottom));
+    padding-bottom: env(safe-area-inset-bottom);
+    background: rgba(10, 5, 18, 0.85);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border-top: 1px solid rgba(255,255,255,0.08);
+    z-index: 150;
+  }
+  .mobile-nav-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.3rem;
+    color: var(--text-muted);
+    font-size: 0.65rem;
+    font-weight: 600;
+    padding: 0.5rem;
+    flex: 1;
+    height: 100%;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    transition: color 0.2s;
+  }
+  .mobile-nav-item.active { color: var(--neon); }
+  .mobile-nav-item.active svg { filter: drop-shadow(0 0 8px rgba(244,63,94,0.5)); }
+}
+
+@media (min-width: 769px) {
+  .mobile-bottom-nav { display: none; }
 }
 

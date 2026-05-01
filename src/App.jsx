@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import toast, { Toaster } from 'react-hot-toast';
 import { motion, AnimatePresence } from 'framer-motion';
+import { Gamepad2, ListChecks, BarChart3 } from 'lucide-react';
 import Navbar from './components/Navbar';
 import MatchCard from './components/MatchCard';
 import BetModal from './components/BetModal';
@@ -153,7 +154,7 @@ function App() {
                   style={{ position: 'relative', fontFamily: "'Space Mono', monospace", fontWeight: 700, textTransform: 'uppercase', display: 'flex', flexDirection: 'column', gap: '0.2rem' }}
                 >
                   <span style={{ fontSize: '1.2rem', letterSpacing: '4px', color: 'var(--text)', textAlign: 'left', marginLeft: '1rem' }}>MARKETPLACE FOR</span>
-                  <span style={{ fontSize: 'clamp(3.5rem, 8vw, 6rem)', lineHeight: 1, letterSpacing: '4px', textAlign: 'left', display: 'flex', alignItems: 'center' }}>
+                  <span style={{ fontSize: 'clamp(2rem, 12vw, 6rem)', lineHeight: 1, letterSpacing: '4px', textAlign: 'left', display: 'flex', alignItems: 'center' }}>
                     CR<span style={{ background: 'linear-gradient(90deg, #06b6d4, #ef4444)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', filter: 'drop-shadow(0 0 10px rgba(6,182,212,0.4))' }}>E</span>ATORS
                   </span>
                 </motion.h1>
@@ -373,6 +374,23 @@ function App() {
           <a href="#">Terms of Service</a> | <a href="#">Soroban Docs</a>
         </div>
       </footer>
+
+      {address && (
+        <nav className="mobile-bottom-nav">
+          <button className={`mobile-nav-item ${activeTab === 'markets' ? 'active' : ''}`} onClick={() => setActiveTab('markets')}>
+            <Gamepad2 size={22} strokeWidth={2.5} />
+            <span>Markets</span>
+          </button>
+          <button className={`mobile-nav-item ${activeTab === 'mybets' ? 'active' : ''}`} onClick={() => setActiveTab('mybets')}>
+            <ListChecks size={22} strokeWidth={2.5} />
+            <span>My Bets</span>
+          </button>
+          <button className={`mobile-nav-item ${activeTab === 'admin' ? 'active' : ''}`} onClick={() => setActiveTab('admin')}>
+            <BarChart3 size={22} strokeWidth={2.5} />
+            <span>Metrics</span>
+          </button>
+        </nav>
+      )}
 
       <AnimatePresence>
         {selectedMatch && (
