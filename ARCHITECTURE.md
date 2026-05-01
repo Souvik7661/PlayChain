@@ -239,3 +239,6 @@ Based on user feedback collected during the Blue Belt phase, the following archi
 2. **WebSocket Real-Time Updates:** Replace polling with Stellar Horizon's streaming API (`EventSource`) for instant, push-based odds updates without page refresh.
 3. **Off-Chain Oracle Integration:** Integrate a decentralized sports data oracle (e.g., Band Protocol or a custom signed-result backend) to automate market resolution without manual admin intervention.
 4. **IPFS-Based Match Data:** Store match metadata on IPFS and reference it from the Soroban contract to make the platform fully censorship-resistant.
+---
+*Last updated: May 2026 - Blue Belt MVP Submission*
+
