@@ -24,3 +24,10 @@ This document outlines the security considerations, threat models, and mitigatio
 
 ## Known Limitations (MVP Scope)
 - The current deployed frontend simulates the Oracle Multi-sig delay and Fee Sponsorship key locally for demonstration purposes. In a true production environment, the sponsor key `VITE_SPONSOR_SECRET` must be migrated to a secure Node.js/Serverless backend to prevent exposure.
+
+## Testnet Safety
+- All transactions run on Stellar Testnet only
+- No mainnet keys are stored or used
+- Friendbot is used exclusively for testnet account funding
+- Pool address is auto-funded via ensureAccountFunded() before each transaction
+
