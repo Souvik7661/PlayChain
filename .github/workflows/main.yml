@@ -23,3 +23,7 @@ jobs:
       
     - name: Build project
       run: npm run build
+
+# XLM Arena - Blue Belt MVP CI/CD Pipeline
+# Validates build integrity on every push to main
+
